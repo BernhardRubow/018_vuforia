@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: VuforiaConfiguration
   m_EditorClassIdentifier: 
   vuforia:
-    vuforiaLicenseKey: ATpQTUn/////AAABGamsWmLbOk1rtwKL0Z2GLj54sQWHu8hf2ub4/9D49H29blTow7CqxjsWPOY9rDr2dMRu2+X6GcYsOLky5fhiw6jd3FXxKkdIrmbID6HVFPBOj7V7NMx8rCrcv5HUpvvYp20tmUb7zhDwDyLRVWr4tvoI+x8pnhqoHdIbXZ7dyLNgufGq8QkZJlbstslgFRHee7xuddloa9TK9n85GiIrrP4CWIlraFVYsKY8+gEwCRgR16cW4LVZgyXOAY6cKfyd06XbbOCYvEHr70b0GJa7skbyj30c99EHczmahCV/46ecFzrf2/fAGvdeq2BFnGH4AUZLetym5ttmgjaSh39QQSXkulxD8Pt021Vlsm8WhJ1Y
+    vuforiaLicenseKey: 
     ufoLicenseKey: QVNQK2FtLy8vLy8vQUFBQUtQbHk4R2NLTFVkTm5ZUUQzR1ZGcVoxd0YrWXlmbU1zK2x4em9PRTNMbGJXSGpnSnFRZ2JJZTVtcDlYUTFMU3BkaVFlK1I5bHlXbS80RWVEQ1JUeGhTMTJFS3hEczQveUl2c05YVHg2czNEbS80UjRQd0d1MnN6azN5ZzdUVkUxNHA1SlhjcngrME5jd2ZtcE1pOWQ4UGFUbm1pWkpUWkUwbTBQRU9XMU9qT1UxdEMzOHBSQ29CS1lqRno5dDl3WkttZTVlY1N5dURWeFROeWZVSUlSamlJRjA1SnE5TVVLcGZFYUUzL0cyd3o2N3huVUlQeFJTQWFtL2VPNkpiNzFGdXg2UFN6VXprWWtORCtQVzcwN0F4MGp5VTdzVzY5SmxGeDVhTGI4UldOaGN2bkRRRkFkNFVCVXlZRUpBNm1pZG8xNHRGaGhYUHFhc0pBSWg1QkliWmQ1V1dCTHJIc3cvUkpxRFNGREIrN1c=
     delayedInitialization: 0
     cameraDeviceModeSetting: -1
@@ -42,11 +42,6 @@ MonoBehaviour:
       DistortionCoefficients: {x: 0, y: 0}
       FieldOfView: {x: 0, y: 0, z: 0, w: 0}
       ContainsMagnet: 0
-  databaseLoad:
-    dataSetsToLoad:
-    - RaceTrackDB
-    dataSetsToActivate:
-    - RaceTrackDB
   videoBackground:
     clippingMode: 0
     numDivisions: 2
