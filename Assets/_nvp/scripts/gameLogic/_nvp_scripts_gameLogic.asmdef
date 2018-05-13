@@ -1,0 +1,12 @@
+{
+    "name": "_nvp_scripts_gameLogic",
+    "references": [
+        "_nvp_scripts_dto",
+        "_nvp_scripts_enums",
+        "_nvp_scripts_interfaces"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}

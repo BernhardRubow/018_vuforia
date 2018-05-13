@@ -1,0 +1,11 @@
+{
+    "name": "_nvp_scripts_interfaces",
+    "references": [
+        "_nvp_scripts_enums",
+        "_nvp_scripts_dto"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}

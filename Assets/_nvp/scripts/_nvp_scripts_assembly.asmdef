@@ -1,0 +1,15 @@
+{
+    "name": "_nvp_scripts_assembly",
+    "references": [
+        "nvp_EventManager_scr",
+        "_nvp_scripts_interfaces",
+        "_nvp_scripts_enums",
+        "_nvp_scripts_gameLogic"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}

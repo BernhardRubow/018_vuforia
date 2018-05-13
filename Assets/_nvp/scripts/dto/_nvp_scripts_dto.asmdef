@@ -1,0 +1,10 @@
+{
+    "name": "_nvp_scripts_dto",
+    "references": [
+        "_nvp_scripts_enums"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}
