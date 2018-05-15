@@ -7,7 +7,7 @@ public class nvp_PlayerEntity_scr : MonoBehaviour
 
   // +++ fields +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   public Vector3 initialPosition { get; private set; }
-  public PlayerLocations playerLocations;  
+  public PlayerLocations playerLocation;  
 	public Vector3 MoveDirection;
   public int MovePoints;
   

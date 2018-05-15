@@ -11,9 +11,10 @@ namespace newvisionsproject.boardgame.dto
     public string Msg;
     public bool AdditionalThrowGranted;
 
-    public CheckMovesResult(bool canMove, string msg)
+    public CheckMovesResult(bool canMove, bool additionalThrowGranted, string msg)
     {
       CanMove = canMove;
+      AdditionalThrowGranted = additionalThrowGranted;
       Msg = msg;
     }
   }

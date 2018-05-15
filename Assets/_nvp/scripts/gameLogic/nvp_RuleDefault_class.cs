@@ -12,9 +12,7 @@ namespace newvisionsproject.boardgame.gameLogic
     private IRule _nextRule;
     public CheckMovesResult CheckRule(PlayerColors playerColor, List<PlayerFigure> playerFigures, int diceNumber)
     {
-      var result = new CheckMovesResult(false, "End of rule chain reached.");
-      result.CanMove = false;
-      result.PossibleMoves = null;
+      var result = new CheckMovesResult(false, false, "End of rule chain reached.");
 			return result;
     }
 

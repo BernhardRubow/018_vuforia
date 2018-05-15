@@ -24,5 +24,16 @@ namespace newvisionsproject.boardgame.dto
       MovePoints = -1;
       GameBoardLocation = -1;
     }
+
+    public void Move(int diceValue){
+      if(MovePoints == -1) {
+        MovePoints = 0;
+        GameBoardLocation = OffSet;
+      }
+      else{
+        MovePoints += diceValue;
+        GameBoardLocation += diceValue;
+      }
+    }
   }
 }

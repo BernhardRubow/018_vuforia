@@ -14,14 +14,10 @@ public class nvp_Rule_5to1_all_in_house_class : IRule
   public CheckMovesResult CheckRule(PlayerColors playerColor, List<PlayerFigure> playerFigures, int diceNumber)
   {
     // no player figure is on the game field which means no player figure has movepoint score between 0 and up to 40
-    var numberOfFiguresOnBoard = playerFigures.Count(x => x.MovePoints >= 0
-      && x.MovePoints <= 40
-      && x.Color == playerColor);
+    var numberOfFiguresOnBoard = nvp_RuleHelper.CountPlayersOnBoard(playerColor, playerFigures);
 
     // at least on player figure is in the house
-    var numberOfPlayerInTheHouse = playerFigures.Count(
-      x => x.MovePoints < 0
-      && x.Color == playerColor);
+    var numberOfPlayerInTheHouse = nvp_RuleHelper.CountPlayersInHouse(playerColor, playerFigures);
 
     // general rule
     if (numberOfFiguresOnBoard > 0 || numberOfPlayerInTheHouse == 0) return _nextRule.CheckRule(playerColor, playerFigures, diceNumber);
@@ -30,24 +26,20 @@ public class nvp_Rule_5to1_all_in_house_class : IRule
     _numberOfTries++;
     if(_numberOfTries >= 3 && diceNumber < 6){
       // used all free rolls
-      result = new CheckMovesResult(false, "nvp_Rule_5to1_all_in_house_class");
-      result.AdditionalThrowGranted = false;
+      result = new CheckMovesResult(false, false, "nvp_Rule_5to1_all_in_house_class");
       _numberOfTries = 0;
       return result;
     }
 
     if(diceNumber == 6){
-      result = new CheckMovesResult(true, "nvp_Rule_5to1_all_in_house_class");
-      result.AdditionalThrowGranted = true;
+      result = new CheckMovesResult(true, true, "nvp_Rule_5to1_all_in_house_class");
       _numberOfTries = 0;
       return result;
     }
     else{      
-      result = new CheckMovesResult(false, "nvp_Rule_5to1_all_in_house_class");
-      result.AdditionalThrowGranted = true;
+      result = new CheckMovesResult(false, true, "nvp_Rule_5to1_all_in_house_class");
       return result;
     }
-
   }
 
   public IRule SetNextRule(IRule nextRule)

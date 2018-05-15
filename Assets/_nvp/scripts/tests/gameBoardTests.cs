@@ -34,48 +34,66 @@ namespace newvisionsproject.boardgame.tests
     public void default_game_board_moves_player_to_start_on_dice_6(){
 
       // on a default game board with 4 players the red player rolls a 6
-
-      var result = _gameboard.CheckPossiblePlayerMoves(PlayerColors.red, 6);
+      int diceValue = 6;
+      var result = _gameboard.CheckPossiblePlayerMoves(PlayerColors.red, diceValue);
 
       Assert.AreEqual(true, result.CanMove);
       Assert.AreEqual(true, result.AdditionalThrowGranted);
+
+      // do the move and test
+      _gameboard.Move(result.PossibleMoves[0], diceValue);
+      Assert.AreEqual(true, nvp_RuleHelper.IsFieldOccupiedByOwnFigure(PlayerColors.red, _gameboard.playerFigures, 0));
     }
     
     [Test]
     public void default_game_board_all_in_house_throws_5_5_6(){
 
-      // on a default game board with 4 players the red player rolls
-      // first : 5 => additional roll
-      // second: 4 => additional roll
-      // third : 1 => going to end of rules
-
-
-      var result = _gameboard.CheckPossiblePlayerMoves(PlayerColors.red, 5);
-
+      int diceValue = 5;
+      var result = _gameboard.CheckPossiblePlayerMoves(PlayerColors.red, diceValue);
       Assert.AreEqual(false, result.CanMove);
       Assert.AreEqual(true, result.AdditionalThrowGranted);
 
+      diceValue = 5;
       if(result.AdditionalThrowGranted){
-        result = _gameboard.CheckPossiblePlayerMoves(PlayerColors.red, 5);
+        result = _gameboard.CheckPossiblePlayerMoves(PlayerColors.red, diceValue);
         Assert.AreEqual(false, result.CanMove);
         Assert.AreEqual(true, result.AdditionalThrowGranted);
       }
 
+      diceValue = 6;
       if(result.AdditionalThrowGranted){
-        result = _gameboard.CheckPossiblePlayerMoves(PlayerColors.red, 6);
+        result = _gameboard.CheckPossiblePlayerMoves(PlayerColors.red, diceValue);
         Assert.AreEqual(true, result.CanMove);
         Assert.AreEqual(true, result.AdditionalThrowGranted);
       }
+
+      // do the move and test
+      _gameboard.Move(result.PossibleMoves[0], diceValue);
+      Assert.AreEqual(true, nvp_RuleHelper.IsFieldOccupiedByOwnFigure(PlayerColors.red, _gameboard.playerFigures, 0));
+    }
+
+    [Test]
+    public void default_game_board_all_in_house_throws_5_6(){
+
+      int diceValue = 5;
+      var result = _gameboard.CheckPossiblePlayerMoves(PlayerColors.red, diceValue);
+      Assert.AreEqual(false, result.CanMove);
+      Assert.AreEqual(true, result.AdditionalThrowGranted);
+
+      diceValue = 6;
+      if(result.AdditionalThrowGranted){
+        result = _gameboard.CheckPossiblePlayerMoves(PlayerColors.red, diceValue);
+        Assert.AreEqual(true, result.CanMove);
+        Assert.AreEqual(true, result.AdditionalThrowGranted);
+      }      
+
+      // do the move and test
+      _gameboard.Move(result.PossibleMoves[0], diceValue);
+      Assert.AreEqual(true, nvp_RuleHelper.IsFieldOccupiedByOwnFigure(PlayerColors.red, _gameboard.playerFigures, 0));
     }
     
     [Test]
     public void default_game_board_all_in_house_throws_5_5_5(){
-
-      // on a default game board with 4 players the red player rolls
-      // first : 5 => additional roll
-      // second: 4 => additional roll
-      // third : 1 => going to end of rules
-
 
       var result = _gameboard.CheckPossiblePlayerMoves(PlayerColors.red, 5);
 

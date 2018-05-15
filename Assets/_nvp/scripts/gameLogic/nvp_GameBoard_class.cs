@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Linq;
 using newvisionsproject.boardgame.interfaces;
 using newvisionsproject.boardgame.enums;
 using newvisionsproject.boardgame.dto;
@@ -26,7 +28,8 @@ namespace newvisionsproject.boardgame.gameLogic
 
       _ruleChain = new List<IRule>();
 
-      _ruleChain.Add(new nvp_Rule_6_all_in_house_class());
+      //_ruleChain.Add(new nvp_Rule_000_MustLeaveStart());
+      _ruleChain.Add(new nvp_Rule_010_MustLeaveHouse());
       _ruleChain.Add(new nvp_Rule_5to1_all_in_house_class());
       _ruleChain.Add(new nvp_RuleDefault_class());  
 
@@ -41,17 +44,12 @@ namespace newvisionsproject.boardgame.gameLogic
       return _ruleChain[0].CheckRule(playerColor, playerFigures, diceValue);
     }
 
+    public void Move(PlayerMove playerMove, int diceValue){
+      var figure = playerFigures.Single(x => x.Color == playerMove.Color && x.Index == playerMove.Index);
+      figure.Move(diceValue);
+    }
+
     // +++ private Methods ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    void AddRule(IRule rule){
-      if (_ruleChain == null) _ruleChain = new List<IRule>();
-      _ruleChain.Add(rule);
-    }
-
-    List<string> CheckPossibleMoves(PlayerColors playerColor, int diceValue){
-      return null;
-    }
-
-    // +++ private methods +++
     void InitPlayers(int numberOfPlayers){
       switch(numberOfPlayers)
       {
